@@ -31,12 +31,12 @@ def read_requirements(file_path):
 
 if __name__ == "__main__":
     setuptools.setup(
-        name="adaptdl-sched",
-        version=os.getenv("ADAPTDL_VERSION", "0.0.0"),
-        author="Petuum Inc. & The AdaptDL Authors",
-        author_email="aurick.qiao@petuum.com",
+        name="adaptdl-sched-modified-pandyaka",
+        version=os.getenv("ADAPTDL_VERSION", "1.0.0"),
+        author="Petuum Inc. & The AdaptDL Authors, modified by pandyakaa",
+        author_email="aurick.qiao@petuum.com, pandyaka.aptanagi@gmail.com",
         description="Dynamic-resource trainer and scheduler for deep learning",
-        url="https://github.com/petuum/adaptdl",
+        url="https://github.com/pandyakaa/modified-adaptdl-sched",
         classifiers=[
             "Programming Language :: Python :: 3",
             "License :: Other/Proprietary License",

@@ -1,4 +1,4 @@
-adaptdl
+adaptdl-modified-pandyaka
 future>=0.17.1
 kubernetes_asyncio==9.1.0  # 10.0.0 is buggy
 prometheus_client>=0.7.1
