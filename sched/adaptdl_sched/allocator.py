@@ -13,6 +13,7 @@
 # limitations under the License.
 
 
+import argparse
 import asyncio
 import dateutil.parser
 import kubernetes_asyncio as kubernetes
@@ -43,7 +44,7 @@ class AdaptDLAllocator(object):
         self._cluster_expander = expander
         # lock for the two corountines in run()
         self._lock = asyncio.Lock()
-        self._metrics_options = metrics_options
+        self._metrics_options = metrics_options if metrics_options else "default"
         self._policy = PolluxPolicy(self._metrics_options)
 
     async def run(self):
@@ -279,8 +280,15 @@ if __name__ == "__main__":
     logging.basicConfig()
     kubernetes.config.load_incluster_config()
 
+    parser = argparse.ArgumentParser(description='PyTorch MNIST Example')
+    parser.add_argument('--metrics-options', type=str, default="default", metavar='MO',
+                    help='learning rate (default: 1.0)')
+    args = parser.parse_args()
+
     expander = ClusterExpander()
-    allocator = AdaptDLAllocator(expander)
+    allocator = AdaptDLAllocator(expander, args.metrics_options)
+
+    LOG.info("Starting allocator with metric option {}".format(args.metrics_options))
 
     loop = asyncio.get_event_loop()
     loop.run_until_complete(asyncio.gather(

@@ -1,0 +1,6 @@
+dependencies:
+- name: docker-registry
+  repository: https://charts.helm.sh/stable
+  version: 1.9.4
+digest: sha256:94212ac9f8b0401d385a70361e25674828a0747104ef6f999e900ab6a1988dd2
+generated: "2020-11-04T20:14:49.81167384Z"
